@@ -1,0 +1,13 @@
+# Gradle state
+.gradle/
+.gradle-user-home/
+
+# Build outputs
+build/
+out/
+
+# OS/editor noise
+.DS_Store
+
+# others
+setup.sh
