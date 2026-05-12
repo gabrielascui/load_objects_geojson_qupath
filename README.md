@@ -1,5 +1,6 @@
 # Load Big GeoJSON Extension (QuPath 0.6.0)
 
+v0.2.1
 QuPath extension to import very large GeoJSON files using a streaming parser, so memory usage stays bounded while features are loaded.
 
 ## What It Does
