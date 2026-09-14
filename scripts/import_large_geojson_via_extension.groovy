@@ -40,3 +40,6 @@ int imported = GeoJsonStreamingImporter.importObjectsStreaming(
         imageData, file.toPath(), chunkSize, clearExisting
 )
 print "Imported ${imported} objects from ${file.getAbsolutePath()}"
+
+resolveHierarchy()
+

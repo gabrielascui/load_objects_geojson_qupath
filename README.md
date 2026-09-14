@@ -6,9 +6,8 @@ QuPath extension to import very large GeoJSON files using a streaming parser, so
 Please discuss any issues here:
 https://forum.image.sc/t/error-on-geojson-object-import-in-qupath/115968/6
 
-* Original code (QuPath v0.6.x): https://github.com/gabrielascui/load_objects_geojson_qupath
-* Everything that works is thanks to Gabriel Ascui (@gabrielascui the original author)
-* Blame any weird behaviour on my mangling Gabriel's original code ;)
+* Original update to the code (QuPath v0.7.x): https://github.com/zindy/qupath-extension-load-objects-geojson/
+* Thank you **@zindy** !
 
 ## What It Does
 
@@ -63,6 +62,8 @@ Built JAR:
 4. Choose your GeoJSON file.
 5. Check QuPath log for import summary.
 
+> NOTE: Always check heirarchy after the script has ran. 
+
 ## Example Script
 
 Annotated script:
@@ -74,6 +75,7 @@ This script:
 - opens a file chooser safely on JavaFX thread
 - calls the extension importer by reflection
 - lets you control `chunkSize` and `clearExisting`
+- Includes a `resolveHierarchy()` call to fix object heirarchy
 
 ## GeoJSON Notes
 
