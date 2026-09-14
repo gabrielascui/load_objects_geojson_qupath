@@ -1,5 +1,7 @@
 # Load Big GeoJSON Extension (QuPath 0.7.0)
 
+[![Run gradle build](https://github.com/gabrielascui/load_objects_geojson_qupath/actions/workflows/build.yml/badge.svg)](https://github.com/gabrielascui/load_objects_geojson_qupath/actions/workflows/build.yml)
+
 v0.2.3
 QuPath extension to import very large GeoJSON files using a streaming parser, so memory usage stays bounded while features are loaded.
 
