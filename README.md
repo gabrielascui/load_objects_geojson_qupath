@@ -1,7 +1,14 @@
-# Load Big GeoJSON Extension (QuPath 0.6.0)
+# Load Big GeoJSON Extension (QuPath 0.7.0)
 
-v0.2.1
+v0.2.2
 QuPath extension to import very large GeoJSON files using a streaming parser, so memory usage stays bounded while features are loaded.
+
+Please discuss any issues here:
+https://forum.image.sc/t/error-on-geojson-object-import-in-qupath/115968/6
+
+* Original code (QuPath v0.6.x): https://github.com/gabrielascui/load_objects_geojson_qupath
+* Everything that works is thanks to Gabriel Ascui (@gabrielascui the original author)
+* Blame any weird behaviour on my mangling Gabriel's original code ;)
 
 ## What It Does
 
@@ -28,7 +35,7 @@ QuPath extension to import very large GeoJSON files using a streaming parser, so
 
 ## Build Requirements
 
-- Java `21` (recommended for QuPath `0.6.0` compatibility)
+- Java `25` (recommended for QuPath `0.7.0` compatibility)
 - Gradle wrapper in this repo (`./gradlew`)
 
 ## Build
@@ -39,12 +46,12 @@ QuPath extension to import very large GeoJSON files using a streaming parser, so
 
 Built JAR:
 
-`build/libs/LoadBigGeoJSON-1.0.0.jar`
+`build/libs/`
 
 ## Install In QuPath
 
 1. Build the project.
-2. Copy `build/libs/LoadBigGeoJSON-1.0.0.jar` into your QuPath extensions directory.
+2. Copy `build/libs/qupath-extension-load-objects-geojson-XXX.jar` into your QuPath extensions directory.
 3. Restart QuPath.
 4. Open an image and go to `Objects` menu.
 
@@ -79,6 +86,6 @@ This script:
 - `No image is open; import canceled`:
   - Open an image first, then rerun import.
 - Dependency/build issues:
-  - Use Java 21 and `./gradlew`.
+  - Use Java 25 and `./gradlew`.
 - Large files:
   - Keep chunk size at `1000` unless you have a reason to tune.
