@@ -1,5 +1,6 @@
 # Load Big GeoJSON Extension (QuPath 0.6.0)
 
+v0.2.1
 QuPath extension to import very large GeoJSON files using a streaming parser, so memory usage stays bounded while features are loaded.
 
 ## What It Does
@@ -11,9 +12,10 @@ QuPath extension to import very large GeoJSON files using a streaming parser, so
 - Imports features in chunks (`1000` by default)
 - Converts supported GeoJSON geometry to QuPath ROI objects
 - Creates:
+  - cell objects when both `geometry` and `nucleusGeometry` are present
   - detection objects when `properties.objectType == "detection"`
   - annotation objects otherwise
-- Sets object name from `properties.cell_id` when present
+- Sets object name from `properties.name` when present, otherwise from `properties.cell_id`
 
 ## Supported Geometry Types
 

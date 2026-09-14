@@ -217,18 +217,35 @@ public class LoadBigGeoJSON implements QuPathExtension {
                 ? null
                 : asString(feature.properties.get("objectType"));
 
+        ROI nucleusRoi = toRoi(feature.nucleusGeometry);
+
         PathObject pathObject;
-        if ("detection".equalsIgnoreCase(objectType)) {
+        if (nucleusRoi != null) {
+            pathObject = PathObjects.createCellObject(roi, nucleusRoi);
+        } else if ("detection".equalsIgnoreCase(objectType)) {
             pathObject = PathObjects.createDetectionObject(roi);
         } else {
             pathObject = PathObjects.createAnnotationObject(roi);
         }
 
-        if (feature.properties != null && feature.properties.containsKey("cell_id")) {
-            pathObject.setName(String.valueOf(feature.properties.get("cell_id")));
-        }
+        setObjectName(pathObject, feature.properties);
 
         return pathObject;
+    }
+
+    private static void setObjectName(PathObject pathObject, Map<String, Object> properties) {
+        if (properties == null) {
+            return;
+        }
+
+        Object name = properties.get("name");
+        if (name == null) {
+            name = properties.get("cell_id");
+        }
+
+        if (name != null) {
+            pathObject.setName(String.valueOf(name));
+        }
     }
 
     private static ROI toRoi(GeometryNode geometryNode) {
